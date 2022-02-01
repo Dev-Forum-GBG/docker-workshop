@@ -46,4 +46,8 @@ Scaling a containerized application is simple, you just start up another contain
 
 Just a little note on Security. Downloading an Image from the internet should be regarded as downloading an appliction. Only use trusted sources.
 
+## On alternatives
+
+There are multiple alternative container runtimes that you should probably consider, for example [Podman](https://podman.io/).
+
 [Read more](https://docs.docker.com/get-started/overview/)

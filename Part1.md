@@ -18,7 +18,7 @@ Start and stop an image (Explain attach vs detach)
 
 ### Task 2
 
-Start multiple versions of an image
+Start multiple containers of an image
 
 ### Task 3
 
