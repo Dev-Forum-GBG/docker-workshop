@@ -4,6 +4,8 @@ In part 2, we will write a Dockerfile and experiment with some common operations
 
 ### Task 1: Create a Docker Image
 
+**Create a docker image which can run our API**
+
 In the `application` folder of this repo, there is a tiny application which launches an API with a single endpoint: `/content`. The app is written in Python, using FastAPI. To build a Dockerfile for this app you need to do the following:
 
 1. Use **FROM** to choose base image
@@ -21,7 +23,9 @@ The command we want to run to start the API is: `uvicorn path.to.app:app --host 
 
 Using the above information, write a `Dockerfile`. To build your Image, use `docker build . -t [image-name]`, and to run it `docker run [image-name]`.
 
-### Task 2: Ports?
+### Task 2
+
+**Publish the ports of your container to access the API from your browser.**
 
 When the container is running, we want to access the application. The application output says it's listening on port 8000, but going to `localhost:8000` will not connect to the API.
 
@@ -31,10 +35,15 @@ Another method is to *expose* the port in the Dockerfile. Adding `EXPOSE 8000` t
 
 Try both methods, to make sure the API is accessible from localhost! Try using host-ports other than 8000.
 
-### Task 3: Hot reloading inside containers
+### Task 3
 
-Some frameworks (mostly in python and javascript-land) have a feature for hot-reloading your code. To use hot-reloading for FastAPI we can add `--reload` to the uvicorn command. Of course, this won't work if you're running it with a container.
+**Hot-reload your code while it's running in a container.**
 
-This is one of many use-cases of volumes. 
+Some frameworks (mostly in python and javascript-land) have a feature for hot-reloading your code. To use hot-reloading for FastAPI we can add `--reload` to the uvicorn command. Of course, this won't work if the code is located in a container, but we can make it work.
 
-Mount application folder contents as a volume and try hot-reloading from a container.
+This is one of many use-cases of volumes. Mounting a volume to a container exposes the content of a folder on the host machine to the container. You can limit it to read/write access if needed. Let's mount our code instead of copying it to the container!
+
+- Remove the **COPY** directive for the application files in the Dockerfile. 
+- Run your new Image with flag `-v [absolute path to mount point]:[path inside container]`
+
+Mount the application folder contents as a volume and try changing the code to see if it hot-reloads.
