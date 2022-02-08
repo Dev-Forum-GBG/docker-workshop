@@ -4,7 +4,7 @@ Docker popularized running software in containers which is an important piece of
 
 ## What is a Container?
 
-At first glance, a container looks like a virtual machine, running its own operating system and any applicstions you put in it.
+At first glance, a container looks like a virtual machine, running its own operating system and any applications you put in it.
 
 Try running a container, and you will immediately see that they are much more lightweight, and start up in almost no time. What's up with that?
 
@@ -20,7 +20,7 @@ One initially confusing part of getting started with Docker is the vocabulary. T
 
 `Containers are the running application`
 
-When you `build` a Dockerfile, you create an Image which contains all the required information and files to start a Continer.
+When you `build` a Dockerfile, you create an Image which contains all the required information and files to start a Container.
 
 When you `run` an Image, it starts the container with the information and files built into the Image.
 
