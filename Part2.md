@@ -2,6 +2,8 @@
 
 In part 2, we will write a Dockerfile and experiment with some common operations such as port exposure and volume-mounting.
 
+---
+
 ### Task 1: Create a Docker Image
 
 **Create a docker image which can run our API**
@@ -23,6 +25,8 @@ The command we want to run to start the API is: `uvicorn path.to.app:app --host 
 
 Using the above information, write a `Dockerfile`. To build your Image, use `docker build . -t [image-name]`, and to run it `docker run [image-name]`.
 
+---
+
 ### Task 2
 
 **Publish the ports of your container to access the API from your browser.**
@@ -34,6 +38,8 @@ We need to *publish* the container port to the host machine. It can be done by a
 Another method is to *expose* the port in the Dockerfile. Adding `EXPOSE 8000` to the Dockerfile tells the user that the 8000 port is the application port in the image. Publishing the exposed port is done by adding only the host port into the flag: `-p [host-port]`.
 
 Try both methods, to make sure the API is accessible from localhost! Try using host-ports other than 8000.
+
+---
 
 ### Task 3
 
